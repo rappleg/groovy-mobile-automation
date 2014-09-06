@@ -1,0 +1,21 @@
+apply plugin: "groovy"
+apply plugin: "idea"
+apply plugin: "eclipse"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+    testCompile "io.appium:java-client:1.6.2"
+}
+
+tasks.withType(Test) {
+    systemProperty 'platform', System.getProperty('platform', 'all')
+    systemProperty 'locale', System.getProperty('locale', 'default')
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
+}

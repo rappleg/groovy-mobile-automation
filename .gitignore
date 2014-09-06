@@ -1,0 +1,15 @@
+.DS_Store
+.gradle
+build
+binaries
+
+*.log
+
+*.ipr
+*.iml
+*.iws
+
+.project
+.metadata
+.classpath
+.settings/
