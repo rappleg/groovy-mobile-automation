@@ -8,7 +8,7 @@ import org.openqa.selenium.By
 import org.openqa.selenium.remote.DesiredCapabilities
 import spock.lang.Specification
 
-class DemoSpec extends Specification {
+class AppleSpec extends Specification {
     AppiumDriver driver
 
     def setup() {
