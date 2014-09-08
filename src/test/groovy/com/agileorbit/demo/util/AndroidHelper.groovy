@@ -48,6 +48,11 @@ class AndroidHelper implements Helper {
         By.xpath("//android.widget.TextView[" + xpathIndex + "]")
     }
 
+    MobileElement secureText(int xpathIndex) {
+        // not yet implemented
+        element(forText(xpathIndex))
+    }
+
     MobileElement text(String text) {
         element(forText(text))
     }

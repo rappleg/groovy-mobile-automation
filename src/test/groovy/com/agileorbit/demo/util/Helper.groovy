@@ -19,6 +19,8 @@ interface Helper {
 
     MobileElement text(int xpathIndex)
 
+    MobileElement secureText(int xpathIndex)
+
     MobileElement text(String text)
 
     MobileElement textExact(String text)

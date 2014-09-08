@@ -6,16 +6,20 @@ class AccountSpec extends BaseSpec {
 
     @Unroll
     def "create account for #name"(String name, String email, String password, String confirmPassword) {
-        given:
-        def button = h.name("Create Account")
-
         when:
-        def input = h.name('Name')
-        input.sendKeys(name)
+        def nameInput = h.text(1)
+        nameInput.sendKeys(name)
+        def emailInput = h.text(2)
+        emailInput.sendKeys(email)
+        def passwordInput = h.secureText(1)
+        passwordInput.sendKeys(password)
+        def confirmPasswordInput = h.secureText(2)
+        confirmPasswordInput.sendKeys(confirmPassword)
+        def button = h.name("Create Account")
         button.click()
 
         then:
-        h.text("Password is blank") != null
+        h.text("Welcome, $name") != null
 
         where:
         name        | email                     | password | confirmPassword
@@ -24,12 +28,40 @@ class AccountSpec extends BaseSpec {
         "Alexander" | "alexander@alexander.com" | "pass"   | "pass"
         "Mark"      | "mark@mark.com"           | "pass"   | "pass"
         "John"      | "john@john.com"           | "pass"   | "pass"
-        "Steve"     | "steve@steve.com"         | "pass"   | "pass"
-        "Doug"      | "doug@doug.com"           | "pass"   | "pass"
-        "Henry"     | "henry@henry.com"         | "pass"   | "pass"
-        "Michael"   | "michael@michael.com"     | "pass"   | "pass"
-        "Peter"     | "peter@peter.com"         | "pass"   | "pass"
-        "Mary"      | "mary@mary.com"           | "pass"   | "pass"
-        "Rachel"    | "rachel@rachel.com"       | "pass"   | "pass"
+    }
+
+    def "blank password popup should appear"() {
+        when:
+        def button = h.name("Create Account")
+        button.click()
+
+        then:
+        h.text("Password is blank") != null
+    }
+
+    @Unroll
+    def "passwords do not match popup should appear for #name"(String name, String email, String password, String confirmPassword) {
+        when:
+        def nameInput = h.text(1)
+        nameInput.sendKeys(name)
+        def emailInput = h.text(2)
+        emailInput.sendKeys(email)
+        def passwordInput = h.secureText(1)
+        passwordInput.sendKeys(password)
+        def confirmPasswordInput = h.secureText(2)
+        confirmPasswordInput.sendKeys(confirmPassword)
+        def button = h.name("Create Account")
+        button.click()
+
+        then:
+        h.text("Passwords do not match") != null
+
+        where:
+        name        | email                     | password | confirmPassword
+        "Bobby"     | "bobby@bobby.com"         | "pass"   | "word"
+        "George"    | "george@george.com"       | "1234"   | "5678"
+        "Alexander" | "alexander@alexander.com" | "Pass"   | "pass"
+        "Mark"      | "mark@mark.com"           | "pass"   | "Pass"
+        "John"      | "john@john.com"           | "pass"   | ""
     }
 }

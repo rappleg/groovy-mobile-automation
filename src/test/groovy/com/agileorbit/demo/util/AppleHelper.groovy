@@ -45,7 +45,15 @@ class AppleHelper implements Helper {
     }
 
     By forText(int xpathIndex) {
-        By.xpath("//UIAStaticText[" + xpathIndex + "]")
+        By.xpath("//UIATextField[" + xpathIndex + "]")
+    }
+
+    MobileElement secureText(int xpathIndex) {
+        element(forSecureText(xpathIndex))
+    }
+
+    By forSecureText(int xpathIndex) {
+        By.xpath("//UIASecureTextField[" + xpathIndex + "]")
     }
 
     MobileElement text(String text) {
