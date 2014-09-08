@@ -10,9 +10,11 @@ class HelloSpec extends BaseSpec {
         def input = h.text()
         def button = h.name("Send")
 
-        expect:
+        when:
         input.sendKeys(english)
         button.click()
+
+        then:
         h.text("Hola $spanish") != null
 
         where:
