@@ -21,7 +21,7 @@ abstract class BaseSpec extends Specification {
         switch (platform) {
             case "ios":
                 File appDir = new File("binaries")
-                File app = new File(appDir, "Demo.app")
+                File app = new File(appDir, "DataEntryDemo.app")
                 DesiredCapabilities capabilities = new DesiredCapabilities()
                 capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "")
                 capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7.1")
@@ -33,7 +33,7 @@ abstract class BaseSpec extends Specification {
                 break
             case "android":
                 File appDir = new File("binaries")
-                File app = new File(appDir, "Demo.apk")
+                File app = new File(appDir, "DataEntryDemo.apk")
                 DesiredCapabilities capabilities = new DesiredCapabilities()
                 capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Emulator")
                 capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID)
