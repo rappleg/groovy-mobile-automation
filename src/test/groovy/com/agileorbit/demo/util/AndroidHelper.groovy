@@ -36,6 +36,6 @@ class AndroidHelper implements Helper {
     }
 
     MobileElement secureText(int xpathIndex) {
-        element(forText(xpathIndex + 2))
+        text(xpathIndex + 2)
     }    
 }
