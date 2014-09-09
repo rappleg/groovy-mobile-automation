@@ -3,23 +3,37 @@ package com.agileorbit.demo.util
 import io.appium.java_client.MobileElement
 import org.openqa.selenium.By
 
-interface Helper {
+trait Helper {
 
-    MobileElement element(By locator)
+    MobileElement element(By locator) {
+        driver.findElement(locator)
+    }
 
-    List<MobileElement> elements(By locator)
+    List<MobileElement> elements(By locator) {
+        driver.findElements(locator)
+    }
 
-    void back()
+    void back() {
+        driver.navigate().back()
+    }
 
-    List<MobileElement> tags(String tagName)
+    List<MobileElement> tags(String tagName) {
+        elements(forTags(tagName))
+    }
 
-    MobileElement name(String text)
+    By forTags(String tagName) {
+        By.className(tagName)
+    }
 
-    MobileElement text()
+    MobileElement name(String text) {
+        element(By.name(text))
+    }
 
-    MobileElement text(int xpathIndex)
+    abstract MobileElement text()
 
-    MobileElement text(String text)
+    abstract MobileElement text(int xpathIndex)
 
-    MobileElement textExact(String text)
+    abstract MobileElement text(String text)
+
+    abstract MobileElement textExact(String text)
 }
