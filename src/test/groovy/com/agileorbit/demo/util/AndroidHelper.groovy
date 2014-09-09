@@ -17,7 +17,7 @@ class AndroidHelper implements Helper {
     }
 
     MobileElement text(int xpathIndex) {
-        element(By.xpath("//android.widget.TextView[" + xpathIndex + "]"))
+        element(By.xpath("//android.widget.EditText[" + xpathIndex + "]"))
     }
 
     MobileElement text(String text) {
