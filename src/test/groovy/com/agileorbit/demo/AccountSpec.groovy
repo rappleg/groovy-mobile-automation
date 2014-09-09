@@ -26,8 +26,6 @@ class AccountSpec extends BaseSpec {
         "Bobby"     | "bobby@bobby.com"         | "pass"   | "pass"
         "George"    | "george@george.com"       | "pass"   | "pass"
         "Alexander" | "alexander@alexander.com" | "pass"   | "pass"
-        "Mark"      | "mark@mark.com"           | "pass"   | "pass"
-        "John"      | "john@john.com"           | "pass"   | "pass"
     }
 
     def "blank password popup should appear"() {
@@ -58,9 +56,6 @@ class AccountSpec extends BaseSpec {
 
         where:
         name        | email                     | password | confirmPassword
-        "Bobby"     | "bobby@bobby.com"         | "pass"   | "word"
-        "George"    | "george@george.com"       | "1234"   | "5678"
-        "Alexander" | "alexander@alexander.com" | "Pass"   | "pass"
         "Mark"      | "mark@mark.com"           | "pass"   | "Pass"
         "John"      | "john@john.com"           | "pass"   | ""
     }
