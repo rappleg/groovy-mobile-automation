@@ -17,7 +17,7 @@ class AppleHelper implements Helper {
     }
 
     MobileElement text(int xpathIndex) {
-        element(By.xpath("//UIAStaticText[" + xpathIndex + "]"))
+        element(By.xpath("//UIATextField[" + xpathIndex + "]"))
     }
 
     MobileElement text(String text) {
