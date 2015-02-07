@@ -24,7 +24,7 @@ abstract class BaseSpec extends Specification {
                 File app = new File(appDir, "DataEntryDemo.app")
                 DesiredCapabilities capabilities = new DesiredCapabilities()
                 capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "")
-                capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7.1")
+                capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.1")
                 capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.IOS)
                 capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone Simulator")
                 capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath())
